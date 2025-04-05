@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>深浅色</title>
+    <style>
+      :root {
+        --bg-color: #f0f0f0;
+        --text-color: #333;
+        --primary-color: #007bff;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg-color: #333;
+          --text-color: #f0f0f0;
+          --primary-color: #009688;
+        }
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+
+      button {
+        background-color: var(--primary-color);
+        color: var(--text-color);
+      }
+    </style>
+  </head>
+  <body>
+    <p>切换系统的深色浅色模式查看效果</p>
+    <button>主色</button>
+  </body>
+</html>

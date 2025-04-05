@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>多主题色</title>
+    <style>
+      :root {
+        --bg-color: #f5f7fa;
+        --text-color: #bc0f0f;
+        --primary-color: #00aaff;
+      }
+
+      [data-theme='B'] {
+        --bg-color: #fff8f0;
+        --text-color: #333333;
+        --primary-color: #ff7f50;
+      }
+
+      [data-theme='C'] {
+        --bg-color: #121212;
+        --text-color: #e0e0e0;
+        --primary-color: #bb86fc;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      button:not([data-theme]) {
+        background-color: var(--primary-color);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div>
+      <Button data-theme="A">A</Button>
+      <Button data-theme="B">B</Button>
+      <Button data-theme="C">C</Button>
+    </div>
+
+    <p>点击按钮切换主题</p>
+    <button>主色</button>
+
+    <script>
+      const buttons = document.querySelectorAll('button[data-theme]');
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const theme = button.getAttribute('data-theme');
+          document.documentElement.setAttribute('data-theme', theme);
+        });
+      });
+    </script>
+  </body>
+</html>
